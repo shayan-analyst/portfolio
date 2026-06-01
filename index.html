@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Muhammad Shayan Shamim | BI, AI & Software Portfolio</title>
   <meta name="description" content="Portfolio of Muhammad Shayan Shamim — BI, Data Analytics, AI, and Software Development." />
   <meta name="theme-color" content="#050816" />
@@ -66,7 +66,11 @@
             marquee: {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-50%)' },
-            }
+            },
+            dropIn: {
+              '0%': { opacity: 0, transform: 'translateY(-10px) scale(.98)' },
+              '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
+            },
           },
           animation: {
             floaty: 'floaty 8s ease-in-out infinite',
@@ -75,6 +79,7 @@
             pulseSoft: 'pulseSoft 5s ease-in-out infinite',
             themeFlash: 'themeFlash .62s ease-out forwards',
             marquee: 'marquee 20s linear infinite',
+            dropIn: 'dropIn .28s ease-out forwards',
           }
         }
       }
@@ -102,6 +107,10 @@
       --glow-1: rgba(96, 165, 250, .18);
       --glow-2: rgba(34, 211, 238, .12);
       --grid: rgba(148, 163, 184, .06);
+      --page-pad-x: clamp(1rem, 2vw, 1.5rem);
+      --section-y: clamp(3.5rem, 7vw, 6rem);
+      --card-radius: clamp(1.25rem, 2vw, 2rem);
+      --max-w: 78rem;
     }
 
     html[data-theme="light"] {
@@ -136,6 +145,8 @@
       color: var(--text);
       overflow-x: hidden;
       transition: background-color .55s ease, color .55s ease, border-color .55s ease;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
     body::before {
@@ -159,6 +170,11 @@
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(100,116,139,.7); border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(71,85,105,.95); border: 2px solid transparent; background-clip: padding-box; }
+
+    .page-shell {
+      width: min(100% - 2 * var(--page-pad-x), var(--max-w));
+      margin-inline: auto;
+    }
 
     .surface {
       background: var(--surface);
@@ -190,7 +206,6 @@
 
     .text-title { color: var(--heading); transition: color .55s ease; }
     .text-muted { color: var(--muted); transition: color .55s ease; }
-
     .border-theme { border-color: var(--border) !important; }
     .border-theme-strong { border-color: var(--border-strong) !important; }
 
@@ -214,10 +229,7 @@
       transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
       will-change: transform, opacity;
     }
-    [data-reveal].in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    [data-reveal].in-view { opacity: 1; transform: translateY(0); }
 
     .section-title {
       font-size: clamp(1.85rem, 4vw, 2.8rem);
@@ -246,10 +258,7 @@
       font-size: .875rem;
       transition: all .25s ease;
     }
-    .pill:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-1px);
-    }
+    .pill:hover { border-color: var(--border-strong); transform: translateY(-1px); }
 
     .pill-compact {
       display: inline-flex;
@@ -261,6 +270,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       font-size: .72rem;
+      white-space: nowrap;
       transition: all .25s ease;
     }
 
@@ -281,20 +291,23 @@
       z-index: -10;
       transition: opacity .55s ease, transform .55s ease;
       animation: floaty 8s ease-in-out infinite;
+      contain: paint;
     }
+
     .orb.one {
       top: -110px;
       left: 50%;
-      width: 900px;
-      height: 540px;
+      width: min(900px, 90vw);
+      height: min(540px, 50vw);
       transform: translateX(-50%);
       background: radial-gradient(circle, rgba(96,165,250,.24), rgba(96,165,250,.04) 55%, transparent 72%);
     }
+
     .orb.two {
       bottom: -120px;
       right: -50px;
-      width: 560px;
-      height: 560px;
+      width: min(560px, 65vw);
+      height: min(560px, 65vw);
       background: radial-gradient(circle, rgba(34,211,238,.14), rgba(34,211,238,.02) 52%, transparent 72%);
       animation-delay: -2s;
     }
@@ -319,9 +332,7 @@
         radial-gradient(circle at var(--x, 85%) var(--y, 16%), rgba(96,165,250,.26), transparent 24%),
         radial-gradient(circle at 20% 80%, rgba(34,211,238,.12), transparent 22%);
     }
-    html[data-theme-transition="on"] .theme-flash {
-      animation: themeFlash .62s ease-out forwards;
-    }
+    html[data-theme-transition="on"] .theme-flash { animation: themeFlash .62s ease-out forwards; }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-3));
@@ -335,38 +346,112 @@
       background: var(--surface-2);
       border: 1px solid var(--border);
     }
-    .btn-secondary:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-1px);
-    }
+    .btn-secondary:hover { border-color: var(--border-strong); transform: translateY(-1px); }
 
-    .status-badge {
-      font-weight: 600;
-      letter-spacing: .01em;
-    }
+    .status-badge { font-weight: 600; letter-spacing: .01em; }
     .status-badge.green { color: #10b981; }
     .status-badge.sky { color: #0ea5e9; }
     .status-badge.violet { color: #8b5cf6; }
 
-    .mini-stat {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-    }
-
+    .mini-stat { background: var(--surface-2); border: 1px solid var(--border); }
     .nav-blur {
       background: color-mix(in srgb, var(--bg) 74%, transparent);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
-    .backtop {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .28s ease, transform .28s ease;
+    .backtop { opacity: 0; transform: translateY(14px); transition: opacity .28s ease, transform .28s ease; }
+    .backtop.show { opacity: 1; transform: translateY(0); }
+
+    .mobile-menu-panel {
+      animation: dropIn .22s ease-out forwards;
     }
-    .backtop.show {
-      opacity: 1;
-      transform: translateY(0);
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: clamp(1rem, 2vw, 1.5rem);
+      align-items: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .hero-ctas, .hero-socials, .contact-actions { display: flex; flex-wrap: wrap; gap: .9rem; }
+
+    .desktop-only { display: block; }
+    .mobile-only { display: none; }
+
+    @media (max-width: 1280px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+      .sector-grid, .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 1024px) {
+      .desktop-only { display: none; }
+      .mobile-only { display: block; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .project-grid, .services-grid, .stats-grid, .tool-grid, .sector-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .page-shell { width: min(100% - 1.15rem, var(--max-w)); }
+      .project-grid, .services-grid, .stats-grid, .tool-grid, .sector-grid { grid-template-columns: 1fr; }
+      .hero-ctas, .hero-socials, .contact-actions { flex-direction: column; }
+      .hero-ctas > *, .hero-socials > *, .contact-actions > * { width: 100%; }
+      .orb.one { width: 140vw; height: 70vw; top: -80px; }
+      .orb.two { width: 80vw; height: 80vw; right: -20vw; bottom: -100px; }
+      .surface, .surface-soft, .surface-strong { box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    }
+
+    @media (max-width: 640px) {
+      .mobile-menu-panel { border-radius: 1.25rem; margin-top: .65rem; }
+      .section-title { font-size: clamp(1.55rem, 7vw, 2.2rem); }
+      .section-kicker { letter-spacing: .18em; }
+      .pill, .pill-compact { font-size: .78rem; }
+      .hero-grid > * { min-width: 0; }
+      .hero-socials { gap: .65rem; }
+      .hero-socials a, .contact-actions a { justify-content: center; }
+      .backtop { right: 1rem; bottom: 1rem; width: 2.75rem; height: 2.75rem; }
+      .nav-actions { gap: .5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell { width: min(100% - .85rem, var(--max-w)); }
+      .hero-visual-card { padding: 1rem !important; }
+      .mini-stat { padding: .85rem !important; }
+      .surface, .surface-strong { border-radius: 1.25rem; }
+      .pill, .pill-compact { padding-inline: .75rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -388,18 +473,18 @@
 
   <header class="fixed top-0 inset-x-0 z-50">
     <nav class="nav-blur border-b border-theme">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
-        <a href="#home" class="flex items-center gap-3 group">
+      <div class="page-shell py-3.5 flex items-center justify-between gap-4">
+        <a href="#home" class="flex items-center gap-3 group min-w-0">
           <div class="w-11 h-11 rounded-2xl accent-gradient grid place-items-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform duration-300">
             <i class="fa-solid fa-database"></i>
           </div>
-          <div>
-            <p class="text-title font-bold leading-none tracking-[0.16em]">SHAYAN</p>
-            <p class="text-xs text-muted mt-1">Data • BI • AI</p>
+          <div class="min-w-0">
+            <p class="text-title font-bold leading-none tracking-[0.16em] truncate">SHAYAN</p>
+            <p class="text-xs text-muted mt-1 truncate">Data • BI • AI</p>
           </div>
         </a>
 
-        <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <div class="hidden xl:flex items-center gap-8 text-sm font-medium">
           <a href="#about" class="glass-link hover:text-title transition-colors">About</a>
           <a href="#services" class="glass-link hover:text-title transition-colors">Expertise</a>
           <a href="#sectors" class="glass-link hover:text-title transition-colors">Domains</a>
@@ -407,7 +492,7 @@
           <a href="#contact" class="glass-link hover:text-title transition-colors">Contact</a>
         </div>
 
-        <div class="hidden md:flex items-center gap-3">
+        <div class="nav-actions hidden md:flex items-center gap-3">
           <a href="https://github.com/shayan-analyst" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-2xl surface glass-link text-sm hover:text-title transition-colors">
             GitHub
           </a>
@@ -420,54 +505,58 @@
           </a>
         </div>
 
-        <button id="menuBtn" class="md:hidden w-11 h-11 rounded-2xl surface grid place-items-center text-title transition-colors" aria-label="Open menu">
+        <button id="menuBtn" class="md:hidden w-11 h-11 rounded-2xl surface grid place-items-center text-title transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
 
-      <div id="mobileMenu" class="md:hidden hidden border-t border-theme px-4 sm:px-6 py-4">
-        <div class="flex flex-col gap-2 text-sm font-medium">
-          <a href="#about" class="py-2 text-muted hover:text-title transition-colors">About</a>
-          <a href="#services" class="py-2 text-muted hover:text-title transition-colors">Expertise</a>
-          <a href="#sectors" class="py-2 text-muted hover:text-title transition-colors">Domains</a>
-          <a href="#projects" class="py-2 text-muted hover:text-title transition-colors">Projects</a>
-          <a href="#contact" class="py-2 text-muted hover:text-title transition-colors">Contact</a>
+      <div id="mobileMenu" class="md:hidden hidden border-t border-theme">
+        <div class="page-shell py-4 mobile-menu-panel">
+          <div class="surface rounded-[1.25rem] p-4">
+            <div class="grid gap-2 text-sm font-medium">
+              <a href="#about" class="py-2 text-muted hover:text-title transition-colors">About</a>
+              <a href="#services" class="py-2 text-muted hover:text-title transition-colors">Expertise</a>
+              <a href="#sectors" class="py-2 text-muted hover:text-title transition-colors">Domains</a>
+              <a href="#projects" class="py-2 text-muted hover:text-title transition-colors">Projects</a>
+              <a href="#contact" class="py-2 text-muted hover:text-title transition-colors">Contact</a>
 
-          <div class="pt-3 grid grid-cols-2 gap-3">
-            <a href="https://github.com/shayan-analyst" target="_blank" rel="noopener noreferrer" class="text-center px-4 py-2.5 rounded-2xl surface hover:text-title transition-colors">GitHub</a>
-            <button id="themeToggleMobile" class="text-center px-4 py-2.5 rounded-2xl surface inline-flex items-center justify-center gap-2 hover:text-title transition-colors">
-              <i id="themeIconMobile" class="fa-solid fa-moon"></i>
-              <span id="themeLabelMobile">Dark</span>
-            </button>
+              <div class="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="https://github.com/shayan-analyst" target="_blank" rel="noopener noreferrer" class="text-center px-4 py-2.5 rounded-2xl surface hover:text-title transition-colors">GitHub</a>
+                <button id="themeToggleMobile" class="text-center px-4 py-2.5 rounded-2xl surface inline-flex items-center justify-center gap-2 hover:text-title transition-colors">
+                  <i id="themeIconMobile" class="fa-solid fa-moon"></i>
+                  <span id="themeLabelMobile">Dark</span>
+                </button>
+              </div>
+              <a href="#contact" class="mt-2 text-center px-4 py-2.5 rounded-2xl btn-primary font-semibold">Hire Me</a>
+            </div>
           </div>
-          <a href="#contact" class="mt-2 text-center px-4 py-2.5 rounded-2xl btn-primary font-semibold">Hire Me</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="pt-28 sm:pt-32">
+  <main class="pt-24 sm:pt-28 lg:pt-32">
     <section id="home" class="px-4 sm:px-6">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-6 items-center">
-          <div class="lg:col-span-7" data-reveal>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full surface text-sm">
+      <div class="page-shell">
+        <div class="hero-grid">
+          <div data-reveal>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full surface text-sm max-w-full">
               <i class="fa-solid fa-sparkles text-cyan-400"></i>
-              Available for remote opportunities
+              <span class="truncate">Available for remote opportunities</span>
             </span>
 
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-title leading-[1.02]">
+            <h1 class="mt-6 text-[clamp(2.2rem,7vw,4.8rem)] lg:text-[clamp(3.8rem,6vw,5.8rem)] font-black tracking-tight text-title leading-[1.02]">
               Turning data into
               <span class="block gradient-text mt-1">
                 decisions, products & AI
               </span>
             </h1>
 
-            <p class="mt-6 max-w-2xl text-base sm:text-lg leading-8 text-muted">
+            <p class="mt-6 max-w-2xl text-[clamp(0.98rem,2vw,1.125rem)] leading-8 text-muted">
               Hi, I’m <span class="text-title font-semibold">Muhammad Shayan Shamim</span>. I build BI dashboards, ETL pipelines, SQL models, automation tools, and AI-driven systems that make business work faster and smarter.
             </p>
 
-            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <div class="hero-ctas mt-8">
               <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl btn-primary font-semibold transition-transform duration-300">
                 <i class="fa-regular fa-envelope"></i> Contact Me
               </a>
@@ -476,7 +565,7 @@
               </a>
             </div>
 
-            <div class="mt-8 flex flex-wrap gap-3 text-sm">
+            <div class="hero-socials mt-8 text-sm">
               <a href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" rel="noopener noreferrer" class="pill">
                 <i class="fa-brands fa-linkedin text-blue-500"></i> LinkedIn
               </a>
@@ -491,8 +580,8 @@
               </a>
             </div>
 
-            <div class="mt-10 surface rounded-[1.75rem] p-4 overflow-hidden">
-              <div class="flex items-center gap-3 whitespace-nowrap animate-marquee">
+            <div class="mt-10 surface rounded-[1.5rem] sm:rounded-[1.75rem] p-3 sm:p-4 overflow-hidden">
+              <div class="flex items-center gap-3 whitespace-nowrap animate-marquee will-change-transform">
                 <span class="pill-compact">Power BI</span>
                 <span class="pill-compact">SQL Server</span>
                 <span class="pill-compact">SSIS</span>
@@ -513,20 +602,21 @@
             </div>
           </div>
 
-          <div class="lg:col-span-5" data-reveal>
-            <div class="relative surface-strong rounded-[2rem] p-6 sm:p-7 overflow-hidden">
+          <div data-reveal>
+            <div class="hero-visual-card relative surface-strong rounded-[1.75rem] sm:rounded-[2rem] p-4 sm:p-6 overflow-hidden">
               <div class="card-grid"></div>
+
               <div class="flex items-center justify-between gap-4 relative">
-                <div>
+                <div class="min-w-0">
                   <p class="text-muted text-sm">Focus</p>
-                  <h2 class="text-title text-2xl font-bold mt-1">Modern BI + AI Portfolio</h2>
+                  <h2 class="text-title text-[clamp(1.3rem,3vw,2rem)] font-bold mt-1">Modern BI + AI Portfolio</h2>
                 </div>
-                <div class="w-14 h-14 rounded-2xl accent-gradient grid place-items-center text-white shadow-lg shadow-blue-500/20">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl accent-gradient grid place-items-center text-white shadow-lg shadow-blue-500/20 shrink-0">
                   <i class="fa-solid fa-wand-magic-sparkles"></i>
                 </div>
               </div>
 
-              <div class="mt-6 grid sm:grid-cols-3 gap-3 relative">
+              <div class="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 relative">
                 <div class="rounded-2xl mini-stat p-4">
                   <p class="text-2xl font-bold text-title">BI</p>
                   <p class="text-xs text-muted mt-1">Power BI dashboards</p>
@@ -541,15 +631,15 @@
                 </div>
               </div>
 
-              <div class="mt-5 rounded-3xl surface p-5 relative">
-                <div class="flex items-center justify-between">
+              <div class="mt-4 sm:mt-5 rounded-3xl surface p-4 sm:p-5 relative">
+                <div class="flex items-center justify-between gap-3">
                   <p class="text-sm text-muted">Portfolio readiness</p>
                   <p class="text-sm font-semibold text-title">Live • GitHub Pages</p>
                 </div>
                 <div class="mt-4 h-2.5 rounded-full bg-slate-200/10 overflow-hidden">
                   <div class="h-full w-[88%] rounded-full accent-gradient animate-pulseSoft"></div>
                 </div>
-                <div class="mt-4 grid grid-cols-3 gap-3 text-sm">
+                <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
                   <div class="mini-stat rounded-2xl p-3">
                     <p class="text-title font-semibold">Fast</p>
                     <p class="text-muted text-xs mt-1">Clean sections</p>
@@ -565,19 +655,19 @@
                 </div>
               </div>
 
-              <div class="mt-4 flex gap-3">
-                <div class="flex-1 rounded-2xl surface-soft p-4">
+              <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="rounded-2xl surface-soft p-4">
                   <p class="text-xs text-muted">Remote-ready</p>
                   <p class="text-title font-semibold mt-1">Global Hiring</p>
                 </div>
-                <div class="flex-1 rounded-2xl surface-soft p-4">
+                <div class="rounded-2xl surface-soft p-4">
                   <p class="text-xs text-muted">Delivery style</p>
                   <p class="text-title font-semibold mt-1">Modern, Clean</p>
                 </div>
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="stats-grid mt-4">
               <div class="surface rounded-3xl p-5" data-reveal>
                 <p class="text-muted text-sm">Projects</p>
                 <p class="text-title text-3xl font-bold mt-2">4+</p>
@@ -594,8 +684,8 @@
       </div>
     </section>
 
-    <section class="px-4 sm:px-6 py-16">
-      <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <section class="px-4 sm:px-6 py-16 sm:py-20">
+      <div class="page-shell stats-grid">
         <div class="surface rounded-3xl p-6" data-reveal>
           <p class="text-muted text-sm">Core strength</p>
           <h3 class="text-title text-2xl font-bold mt-2">BI + Analytics</h3>
@@ -619,29 +709,29 @@
       </div>
     </section>
 
-    <section id="about" class="px-4 sm:px-6 py-20 scroll-mt-28">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-4" data-reveal>
+    <section id="about" class="px-4 sm:px-6 py-[var(--section-y)] scroll-mt-28">
+      <div class="page-shell hero-grid items-start">
+        <div data-reveal>
           <p class="section-kicker">About Me</p>
           <h2 class="section-title mt-3">Building clean data infrastructure to drive real business decisions.</h2>
         </div>
 
-        <div class="lg:col-span-8 surface rounded-[2rem] p-7 sm:p-8" data-reveal>
-          <p class="text-muted leading-8 text-base sm:text-lg">
+        <div class="surface rounded-[var(--card-radius)] p-6 sm:p-8" data-reveal>
+          <p class="text-muted leading-8 text-[clamp(0.98rem,2vw,1.06rem)]">
             I am a final-year Data Science student and a BI & Data Analyst at Habib University, where I manage real-world data logistics and infrastructure daily. My core focus is on the practical plumbing of data—building automated ETL pipelines using SSIS and Python, structuring reliable SQL Server databases, and designing intuitive Power BI dashboards that business teams can actually leverage. I rely heavily on modern, AI-assisted workflows to optimize code and deploy solutions faster, making me fully equipped for agile, remote data roles.
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Automated ETL (SSIS/Python)</span>
-            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> SQL Database Optimization</span>
-            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Interactive Power BI Layouts</span>
-            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Remote & AI-Driven Workflow</span>
+            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Automated ETL</span>
+            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> SQL Optimization</span>
+            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Power BI Layouts</span>
+            <span class="pill"><i class="fa-solid fa-check text-emerald-500"></i> Remote & AI Workflow</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="services" class="px-4 sm:px-6 pb-20 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
+    <section id="services" class="px-4 sm:px-6 pb-[var(--section-y)] scroll-mt-28">
+      <div class="page-shell">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8" data-reveal>
           <div>
             <p class="section-kicker">Core Expertise</p>
@@ -652,8 +742,8 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 xl:grid-cols-12 gap-5">
-          <article class="xl:col-span-4 surface rounded-[2rem] p-6" data-reveal>
+        <div class="services-grid">
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 grid place-items-center">
               <i class="fa-solid fa-network-wired text-amber-400 text-xl"></i>
             </div>
@@ -669,7 +759,7 @@
             </div>
           </article>
 
-          <article class="xl:col-span-4 surface rounded-[2rem] p-6" data-reveal>
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 grid place-items-center">
               <i class="fa-solid fa-chart-column text-cyan-400 text-xl"></i>
             </div>
@@ -685,7 +775,7 @@
             </div>
           </article>
 
-          <article class="xl:col-span-4 surface rounded-[2rem] p-6" data-reveal>
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 grid place-items-center">
               <i class="fa-solid fa-brain text-indigo-400 text-xl"></i>
             </div>
@@ -704,27 +794,27 @@
       </div>
     </section>
 
-    <section class="px-4 sm:px-6 pb-20">
-      <div class="max-w-7xl mx-auto">
+    <section class="px-4 sm:px-6 pb-[var(--section-y)]">
+      <div class="page-shell">
         <div class="mb-8" data-reveal>
           <p class="section-kicker">Tech Ecosystem</p>
           <h2 class="section-title mt-3">The tools driving my pipelines and insights</h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+        <div class="tool-grid">
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-bold text-lg">Data Engineering</p>
             <p class="mt-2 text-muted text-sm leading-7">Building automated ETL workflows, managing data logistics, and extracting data smoothly using SSIS.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-bold text-lg">Database Architecture</p>
             <p class="mt-2 text-muted text-sm leading-7">Structuring relational models, writing complex views, and optimizing queries in SQL Server.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-bold text-lg">Business Intelligence</p>
             <p class="mt-2 text-muted text-sm leading-7">Crafting interactive Power BI dashboards and advanced DAX measures for clear decision-making.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-bold text-lg">Applied AI & Python</p>
             <p class="mt-2 text-muted text-sm leading-7">Developing autonomous multi-agent systems and leveraging AI to automate manual workflows.</p>
           </div>
@@ -732,35 +822,35 @@
       </div>
     </section>
 
-    <section id="sectors" class="px-4 sm:px-6 pb-20 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
+    <section id="sectors" class="px-4 sm:px-6 pb-[var(--section-y)] scroll-mt-28">
+      <div class="page-shell">
         <div class="mb-8" data-reveal>
           <p class="section-kicker">Domains</p>
           <h2 class="section-title mt-3">Sectors where my data stack drives impact</h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+        <div class="sector-grid">
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">Higher Education</p>
             <p class="text-muted text-sm mt-2 leading-7">University data pipelines, student lifecycle reporting, and centralized academic dashboards.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">Retail & SME</p>
             <p class="text-muted text-sm mt-2 leading-7">Store automation, agentic AI workflows, and real-time POS analytics for smarter operations.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">Logistics & Ops</p>
             <p class="text-muted text-sm mt-2 leading-7">Automated ETL pipelines, data movement tracking, and operational efficiency metrics.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">Finance & Sales</p>
             <p class="text-muted text-sm mt-2 leading-7">KPI reporting, complex DAX financial modeling, and reliable decision-support systems.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">E-commerce</p>
             <p class="text-muted text-sm mt-2 leading-7">Customer analytics, inventory visibility, and automated data processing for storefronts.</p>
           </div>
-          <div class="surface rounded-[2rem] p-6" data-reveal>
+          <div class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <p class="text-title font-semibold">Tech & Automation</p>
             <p class="text-muted text-sm mt-2 leading-7">Internal reporting tools, database structuring, and AI-assisted workflow automation.</p>
           </div>
@@ -768,8 +858,8 @@
       </div>
     </section>
 
-    <section id="projects" class="px-4 sm:px-6 pb-20 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
+    <section id="projects" class="px-4 sm:px-6 pb-[var(--section-y)] scroll-mt-28">
+      <div class="page-shell">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8" data-reveal>
           <div>
             <p class="section-kicker">Projects</p>
@@ -780,13 +870,13 @@
           </a>
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-5">
-          <article class="surface rounded-[2rem] p-6" data-reveal>
+        <div class="project-grid">
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="flex items-start justify-between gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 grid place-items-center">
+              <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 grid place-items-center shrink-0">
                 <i class="fa-solid fa-store text-blue-400 text-xl"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs bg-emerald-500/10 border border-emerald-500/20 status-badge green">In progress</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-emerald-500/10 border border-emerald-500/20 status-badge green whitespace-nowrap">In progress</span>
             </div>
             <h3 class="mt-5 text-2xl font-bold text-title">Retail Store Automation System</h3>
             <p class="mt-3 text-muted leading-7">
@@ -800,12 +890,12 @@
             </div>
           </article>
 
-          <article class="surface rounded-[2rem] p-6" data-reveal>
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="flex items-start justify-between gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 grid place-items-center">
+              <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 grid place-items-center shrink-0">
                 <i class="fa-solid fa-building-columns text-cyan-400 text-xl"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs bg-sky-500/10 border border-sky-500/20 status-badge sky">Professional exp</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-sky-500/10 border border-sky-500/20 status-badge sky whitespace-nowrap">Professional exp</span>
             </div>
             <h3 class="mt-5 text-2xl font-bold text-title">University Data Pipeline</h3>
             <p class="mt-3 text-muted leading-7">
@@ -819,12 +909,12 @@
             </div>
           </article>
 
-          <article class="surface rounded-[2rem] p-6" data-reveal>
+          <article class="surface rounded-[var(--card-radius)] p-6" data-reveal>
             <div class="flex items-start justify-between gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 grid place-items-center">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 grid place-items-center shrink-0">
                 <i class="fa-solid fa-robot text-indigo-400 text-xl"></i>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs bg-violet-500/10 border border-violet-500/20 status-badge violet">Remote-ready</span>
+              <span class="px-3 py-1 rounded-full text-xs bg-violet-500/10 border border-violet-500/20 status-badge violet whitespace-nowrap">Remote-ready</span>
             </div>
             <h3 class="mt-5 text-2xl font-bold text-title">AI Data Automation Engine</h3>
             <p class="mt-3 text-muted leading-7">
@@ -841,60 +931,9 @@
       </div>
     </section>
 
-    <section class="px-4 sm:px-6 pb-20">
-      <div class="max-w-7xl mx-auto">
-        <div class="mb-8" data-reveal>
-          <p class="section-kicker">Tools</p>
-          <h2 class="section-title mt-3">Core Stack</h2>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="surface rounded-[2rem] p-6" data-reveal>
-            <p class="text-title font-semibold mb-4">BI & Analytics</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="pill-compact text-xs">Power BI</span>
-              <span class="pill-compact text-xs">DAX</span>
-              <span class="pill-compact text-xs">Data Visualization</span>
-              <span class="pill-compact text-xs">KPI Dashboards</span>
-            </div>
-          </div>
-
-          <div class="surface rounded-[2rem] p-6" data-reveal>
-            <p class="text-title font-semibold mb-4">Data Engineering</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="pill-compact text-xs">SQL Server</span>
-              <span class="pill-compact text-xs">SSIS (ETL)</span>
-              <span class="pill-compact text-xs">Stored Procs & Views</span>
-              <span class="pill-compact text-xs">Relational Modeling</span>
-            </div>
-          </div>
-
-          <div class="surface rounded-[2rem] p-6" data-reveal>
-            <p class="text-title font-semibold mb-4">Development</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="pill-compact text-xs">Python</span>
-              <span class="pill-compact text-xs">REST APIs</span>
-              <span class="pill-compact text-xs">Workflow Automation</span>
-              <span class="pill-compact text-xs">Git / GitHub</span>
-            </div>
-          </div>
-
-          <div class="surface rounded-[2rem] p-6" data-reveal>
-            <p class="text-title font-semibold mb-4">Applied AI</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="pill-compact text-xs">Agentic AI</span>
-              <span class="pill-compact text-xs">Machine Learning</span>
-              <span class="pill-compact text-xs">LLM Apps</span>
-              <span class="pill-compact text-xs">NLP Pipelines</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="px-4 sm:px-6 pb-24 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
-        <div class="surface-strong rounded-[2.25rem] p-8 sm:p-10 relative overflow-hidden" data-reveal>
+    <section id="contact" class="px-4 sm:px-6 pb-[var(--section-y)] scroll-mt-28">
+      <div class="page-shell">
+        <div class="surface-strong rounded-[2.25rem] p-6 sm:p-8 lg:p-10 relative overflow-hidden" data-reveal>
           <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-400/10 pointer-events-none"></div>
 
           <div class="relative max-w-3xl">
@@ -904,24 +943,20 @@
               Whether you need to architect automated ETL pipelines, build intuitive Power BI dashboards, or deploy intelligent AI agents to eliminate manual tasks, I am ready to collaborate. Reach out via any channel below!
             </p>
 
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="mailto:shayan.analyst@gmail.com" class="px-5 py-3 rounded-2xl btn-primary font-semibold inline-flex items-center gap-2">
+            <div class="contact-actions mt-8">
+              <a href="mailto:shayan.analyst@gmail.com" class="px-5 py-3 rounded-2xl btn-primary font-semibold inline-flex items-center justify-center gap-2">
                 <i class="fa-regular fa-envelope"></i> Email
               </a>
-
-              <a href="https://wa.me/923172756808" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center gap-2">
+              <a href="https://wa.me/923172756808" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center justify-center gap-2">
                 <i class="fa-brands fa-whatsapp text-emerald-500"></i> WhatsApp
               </a>
-
-              <a href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center gap-2">
+              <a href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center justify-center gap-2">
                 <i class="fa-brands fa-linkedin text-blue-500"></i> LinkedIn
               </a>
-
-              <a href="https://github.com/shayan-analyst" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center gap-2">
+              <a href="https://github.com/shayan-analyst" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center justify-center gap-2">
                 <i class="fa-brands fa-github"></i> GitHub
               </a>
-
-              <a href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center gap-2">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-2xl btn-secondary font-semibold inline-flex items-center justify-center gap-2">
                 <i class="fa-brands fa-upwork text-green-500"></i> Upwork
               </a>
             </div>
@@ -936,11 +971,10 @@
   </button>
 
   <footer class="border-t border-theme py-8 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+    <div class="page-shell flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
       <p class="text-muted text-center md:text-left">
         © 2026 Muhammad Shayan Shamim. <span class="hidden sm:inline">|</span> Data Engineering & BI Portfolio
       </p>
-
       <div class="flex items-center gap-5 text-lg text-muted">
         <a href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors duration-200" title="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>
@@ -1004,18 +1038,13 @@
 
       if (themeFlash && sourceEl) {
         const rect = sourceEl.getBoundingClientRect();
-        const x = (rect.left + rect.width / 2) + 'px';
-        const y = (rect.top + rect.height / 2) + 'px';
-        themeFlash.style.setProperty('--x', x);
-        themeFlash.style.setProperty('--y', y);
+        themeFlash.style.setProperty('--x', (rect.left + rect.width / 2) + 'px');
+        themeFlash.style.setProperty('--y', (rect.top + rect.height / 2) + 'px');
       }
 
       html.setAttribute('data-theme-transition', 'on');
       syncThemeUI(next);
-
-      window.setTimeout(() => {
-        html.removeAttribute('data-theme-transition');
-      }, 620);
+      window.setTimeout(() => html.removeAttribute('data-theme-transition'), 620);
     }
 
     syncThemeUI(getTheme());
@@ -1026,8 +1055,9 @@
     });
 
     menuBtn?.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.toggle('hidden');
-      menuBtn.innerHTML = isHidden
+      const hidden = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!hidden));
+      menuBtn.innerHTML = hidden
         ? '<i class="fa-solid fa-bars"></i>'
         : '<i class="fa-solid fa-xmark"></i>';
     });
@@ -1035,6 +1065,7 @@
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
         menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
     });
@@ -1062,6 +1093,7 @@
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
 
     backToTop?.addEventListener('click', () => {
