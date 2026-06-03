@@ -858,7 +858,7 @@
 
     .footer {
       text-align: center;
-      padding: 32px;
+      padding: 10px;
       border-top: 1px solid var(--border);
       font-size: 0.82rem;
       color: var(--muted);
@@ -1248,20 +1248,23 @@
           <div class="field-row">
             <label>
               Name
-              <input type="text" id="form-name" placeholder="John Doe" required />
+              <input type="text" id="form-name" placeholder="Name or Organization" required />
             </label>
             <label>
               Email
-              <input type="email" id="form-email" placeholder="john@email.com" required />
+              <input type="email" id="form-email" placeholder="Email Address" required />
             </label>
           </div>
           <label>
             Subject
-            <input type="text" id="form-subject" placeholder="Project discussion" required />
+            <input type="text" id="form-subject" placeholder="Reason for Contact" required />
           </label>
           <label>
             Message
-            <textarea rows="5" id="form-message" placeholder="Tell me about the opportunity..." required></textarea>
+            <textarea rows="5"
+          id="form-message"
+          placeholder="Tell me about your project, role, or idea..."
+          required></textarea>
           </label>
           <button type="submit" class="btn btn-primary btn-full">Send Message ✈</button>
         </form>
