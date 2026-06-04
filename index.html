@@ -86,7 +86,18 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:h
 
 .brand{font-family:var(--mono);font-weight:700;font-size:.95rem;color:var(--teal);text-decoration:none;letter-spacing:-.2px;display:flex;align-items:center;gap:10px;}
 .brand-sep{color:var(--text3);margin:0 2px;}
-.brand-x{font-family:var(--sans);font-weight:800;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--text2);transition:border-color .2s,color .2s;}
+.brand-x{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:.78rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text2);
+    border:none;
+    padding:0;
+    border-radius:0;
+    transition:color .2s;
+}
 .brand:hover .brand-x{border-color:var(--teal);color:var(--teal);}
 
 .nav-links{display:flex;gap:24px;list-style:none;}
