@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Muhammad Shayan Shamim | BI & Data Analyst · XYPEX</title>
 <meta name="description" content="Muhammad Shayan Shamim — BI & Data Analyst. ETL, SQL Server, Power BI, Python, Agentic AI. XYPEX Studio vision."/>
 <script>
@@ -20,7 +20,7 @@
   --teal:#00cdf0;--teal2:#48dff5;--teal3:#00b4d8;
   --teal-glow:rgba(0,205,240,0.18);--teal-soft:rgba(0,205,240,0.07);
   --text:#d8eeff;--text2:#5e8caa;--text3:#243d52;
-  --head:#ffffff; 
+  --head:#ffffff;
   --mono:'JetBrains Mono',monospace;
   --sans:'Space Grotesk',sans-serif;
   --body:'DM Sans',sans-serif;
@@ -56,7 +56,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:h
 #t-flash{
   position:fixed;inset:0;pointer-events:none;z-index:3500;
   opacity:0;
-  background:conic-gradient(from 0deg at var(--ox,50%) var(--oy,50%), 
+  background:conic-gradient(from 0deg at var(--ox,50%) var(--oy,50%),
     rgba(var(--pc),.0) 0deg,
     rgba(var(--pc),.22) 60deg,
     rgba(var(--pc),.0) 120deg,
@@ -84,10 +84,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:h
   transition:box-shadow .3s,background .4s,border-color .4s;}
 .nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.35);}
 
-.brand{font-family:var(--mono);font-weight:700;font-size:.95rem;color:var(--teal);text-decoration:none;letter-spacing:-.2px;display:flex;align-items:center;gap:10px;}
-.brand-sep{color:var(--text3);margin:0 2px;}
-.brand-x{font-family:var(--sans);font-weight:800;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--text2);transition:border-color .2s,color .2s;}
-.brand:hover .brand-x{border-color:var(--teal);color:var(--teal);}
+.brand{font-family:var(--mono);font-weight:700;font-size:.9rem;color:var(--teal);text-decoration:none;letter-spacing:.5px;display:inline-block;white-space:nowrap;text-transform:uppercase;line-height:1;}
+.brand-x{font-family:var(--mono);font-weight:700;font-size:.9rem;letter-spacing:.5px;text-transform:uppercase;color:var(--text2);border:none;padding:0;transition:color .2s;}
+.brand:hover .brand-x{color:var(--teal);}
 
 .nav-links{display:flex;gap:24px;list-style:none;}
 .nav-links a{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--text2);text-decoration:none;transition:color .2s;position:relative;}
@@ -148,12 +147,12 @@ hr.div{border:none;border-top:1px solid var(--border);margin:0;}
 @keyframes pulseD{0%,100%{box-shadow:0 0 0 0 rgba(var(--pc),.5);}50%{box-shadow:0 0 0 6px rgba(var(--pc),0);}}
 
 /* ═══ HERO ════════════════════════════════════════════════ */
-#hero{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:space-between;gap:52px;}
+#hero{min-height:calc(100vh - 64px);display:flex;align-items:flex-start;justify-content:space-between;gap:52px;padding-top:60px;padding-bottom:60px;}
 .h-left{flex:1;min-width:0;max-width:600px;}
 .h-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 15px;border:1px solid var(--border-h);border-radius:100px;font-family:var(--mono);font-size:.67rem;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;background:var(--teal-soft);margin-bottom:22px;}
 .ldot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulseD 2s infinite;}
-.h-name{font-family:var(--sans);font-size:clamp(2.1rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-1.5px;line-height:1.0;color:var(--head);margin-bottom:16px;}
-.t-row{display:flex;align-items:center;gap:9px;height:34px;margin-bottom:18px;overflow:hidden;}
+.h-name{font-family:var(--sans);font-size:clamp(1.7rem,3.2vw,2.8rem);font-weight:800;letter-spacing:-1px;line-height:1.1;color:var(--head);margin-bottom:16px;white-space:nowrap;}
+.t-row{display:flex;align-items:center;gap:9px;height:34px;margin-bottom:18px;overflow:visible;}
 .t-prefix{font-family:var(--mono);font-size:.95rem;color:var(--text3);}
 .t-target{font-family:var(--mono);font-size:.95rem;font-weight:600;color:var(--teal);white-space:nowrap;}
 .t-cur{display:inline-block;width:2px;height:1.05em;background:var(--teal);margin-left:1px;vertical-align:middle;animation:blink .9s step-end infinite;}
@@ -164,7 +163,7 @@ hr.div{border:none;border-top:1px solid var(--border);margin:0;}
 .soc-p{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--surface);border:1px solid var(--border);color:var(--text2);text-decoration:none;font-size:1rem;transition:border-color .2s,color .2s,transform .2s,box-shadow .2s;}
 .soc-p:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-3px);box-shadow:0 6px 20px var(--teal-glow);}
 .soc-p svg{width:16px;height:16px;fill:currentColor;}
-.h-right{flex:0 0 295px;display:flex;flex-direction:column;gap:13px;}
+.h-right{flex:0 0 295px;display:flex;flex-direction:column;gap:13px;margin-top:52px;}
 .hstat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:20px 22px;backdrop-filter:blur(14px);transition:transform .3s,border-color .3s,box-shadow .3s;}
 .hstat:nth-child(1){animation:float 4s ease-in-out infinite;}
 .hstat:nth-child(2){animation:float 4s ease-in-out 1.4s infinite;}
@@ -175,18 +174,18 @@ hr.div{border:none;border-top:1px solid var(--border);margin:0;}
 
 /* ═══ ABOUT ══════════════════════════════════════════════ */
 #about{background:linear-gradient(180deg,transparent,var(--bg2) 18%,var(--bg2) 82%,transparent);}
-.ag{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;}
+.ag{display:block;max-width:820px;margin:0 auto;}
 .at p{font-size:.94rem;color:var(--text2);line-height:1.9;margin-bottom:15px;}
 .at p strong{color:var(--text);}
-.at-note{padding:15px 20px;background:var(--teal-soft);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:var(--r);font-family:var(--mono);font-size:.8rem;color:var(--text2);line-height:1.7;margin-top:22px;}
-.astats{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
-.asc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:22px 16px;text-align:center;transition:transform .3s,border-color .3s,box-shadow .3s;}
-.asc:hover{transform:translateY(-7px);border-color:var(--border-h);box-shadow:0 14px 44px var(--teal-glow);}
-.asc-v{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--teal);}
-.asc-l{font-size:.7rem;color:var(--text2);margin-top:5px;line-height:1.5;}
+
+
+
+
+
+
 
 /* ═══ SKILLS ═════════════════════════════════════════════ */
-.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .sk-c{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px;backdrop-filter:blur(14px);transition:transform .35s,border-color .3s,box-shadow .3s;}
 .sk-c:hover{transform:translateY(-8px);border-color:var(--border-h);box-shadow:0 14px 50px var(--teal-glow);}
 .ski{width:42px;height:42px;background:var(--teal-soft);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.22rem;margin-bottom:13px;}
@@ -270,29 +269,15 @@ hr.div{border:none;border-top:1px solid var(--border);margin:0;}
 #fstatus.ok{color:#4ade80;}#fstatus.err{color:#f87171;}
 
 /* ═══ FOOTER ════════════════════════════════════════════ */
-footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-
-.fcopy{font-family:var(--mono);font-size:.65rem;color:var(--text2);}
+footer{border-top:1px solid var(--border);padding:28px 6%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+.fcopy{font-family:var(--mono);font-size:.73rem;color:var(--text2);}
 .fcopy span{color:var(--teal);}
-.fcopy{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    font-family:var(--mono);
-    font-size:.65rem;
-    color:var(--text2);
-}
-
-.fxypex{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);opacity:.7;}
-
+.fxypex{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);opacity:.7;}
 /* Footer has ONLY social icon links — no nav link duplication */
-.fsoc{display:flex;gap:10px;align-items:center;}
-
+.fsoc{display:flex;gap:14px;align-items:center;}
 .fsoc a{color:var(--text3);text-decoration:none;transition:color .2s;}
-
 .fsoc a:hover{color:var(--teal);}
-
-.fsoc svg{width:14px;height:14px;fill:currentColor;display:block;}
+.fsoc svg{width:16px;height:16px;fill:currentColor;display:block;}
 
 /* ═══ HIRE ME MODAL ══════════════════════════════════════ */
 /* Backdrop */
@@ -327,7 +312,7 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 .hm-sub{font-size:.83rem;color:var(--text2);line-height:1.7;}
 
 /* Step indicator */
-.hm-steps{display:flex;align-items:center;gap:0;margin-bottom:28px;}
+.hm-steps{display:flex;align-items:center;gap:0;margin-bottom:28px;padding-right:48px;}
 .hm-step-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--text3);transition:all .3s;flex-shrink:0;}
 .hm-step-dot.active{border-color:var(--teal);background:var(--teal);color:var(--bg);}
 .hm-step-dot.done{border-color:var(--teal);background:var(--teal-soft);color:var(--teal);}
@@ -387,6 +372,8 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
   .frow{grid-template-columns:1fr;}
   .shell{padding:78px 5%;}
   .shell.hero-sh{padding-top:30px;padding-bottom:30px;}
+  footer{grid-template-columns:1fr;text-align:center;}
+  .fsoc{justify-content:center!important;}
   .hm-box{padding:28px 22px 24px;}
   .hm-row,.opt-grid{grid-template-columns:1fr;}
 }
@@ -397,9 +384,100 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
   .astats{grid-template-columns:1fr 1fr;}
   .sg{grid-template-columns:1fr;}
 }
+
+/* ═══ PAGE ENTRY LOADER ══════════════════════════════════ */
+#page-loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:20px;
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#page-loader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-logo{
+  font-family:var(--mono);font-size:1.05rem;font-weight:700;
+  color:var(--teal);letter-spacing:.5px;text-transform:uppercase;
+  opacity:0;animation:loaderFadeIn .5s .2s forwards;
+  display:inline-block;white-space:nowrap;line-height:1;
+}
+.loader-logo em{color:var(--text2);font-style:normal;font-weight:700;font-size:1.05rem;letter-spacing:.5px;}
+.loader-bar-wrap{
+  width:180px;height:2px;background:rgba(var(--pc),.12);border-radius:10px;overflow:hidden;
+  opacity:0;animation:loaderFadeIn .4s .4s forwards;
+}
+.loader-bar-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--teal),var(--teal2));
+  border-radius:10px;
+  animation:loaderGrow 1.1s .5s cubic-bezier(.4,0,.2,1) forwards;
+  box-shadow:0 0 12px var(--teal-glow);
+}
+.loader-txt{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:2px;
+  color:var(--text3);text-transform:uppercase;
+  opacity:0;animation:loaderFadeIn .4s .5s forwards;
+}
+@keyframes loaderFadeIn{to{opacity:1;}}
+@keyframes loaderGrow{to{width:100%;}}
+
+/* Hero elements stagger in after loader */
+.h-left .h-badge{opacity:0;animation:heroSlideUp .6s 1.3s cubic-bezier(.16,1,.3,1) forwards;}
+.h-left .h-name {opacity:0;animation:heroSlideUp .7s 1.45s cubic-bezier(.16,1,.3,1) forwards;}
+.h-left .t-row  {opacity:0;animation:heroSlideUp .6s 1.6s cubic-bezier(.16,1,.3,1) forwards;}
+.h-left .h-sub  {opacity:0;animation:heroSlideUp .6s 1.72s cubic-bezier(.16,1,.3,1) forwards;}
+.h-left .h-btns {opacity:0;animation:heroSlideUp .6s 1.84s cubic-bezier(.16,1,.3,1) forwards;}
+.h-left .soc-row{opacity:0;animation:heroSlideUp .6s 1.96s cubic-bezier(.16,1,.3,1) forwards;}
+.h-right        {opacity:0;animation:heroSlideLeft .8s 1.55s cubic-bezier(.16,1,.3,1) forwards;}
+@keyframes heroSlideUp{
+  from{opacity:0;transform:translateY(28px);}
+  to  {opacity:1;transform:translateY(0);}
+}
+@keyframes heroSlideLeft{
+  from{opacity:0;transform:translateX(32px);}
+  to  {opacity:1;transform:translateX(0);}
+}
+/* Disable .rv initial hide on hero children — handled by above */
+#hero .rv{opacity:1;transform:none;transition:none;}
+
+/* ═══ TECH STACK — animated clickable bars ══════════════ */
+.tech-stack{display:flex;flex-direction:column;gap:10px;width:100%;}
+.ts-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 14px;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  cursor:pointer;text-decoration:none;
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.ts-item::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--teal-soft),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  border-radius:10px;
+}
+.ts-item:hover{border-color:var(--border-h);box-shadow:0 4px 20px var(--teal-glow);transform:translateX(4px);}
+.ts-item:hover::before{transform:scaleX(1);}
+.ts-label{
+  font-family:var(--mono);font-size:.72rem;font-weight:600;
+  color:var(--text);white-space:nowrap;min-width:90px;
+  position:relative;z-index:1;
+}
+.ts-bar-wrap{flex:1;height:3px;background:rgba(var(--pc),.1);border-radius:10px;overflow:hidden;position:relative;z-index:1;}
+.ts-bar{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:10px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.ts-pct{font-family:var(--mono);font-size:.65rem;color:var(--teal);font-weight:700;min-width:30px;text-align:right;position:relative;z-index:1;}
+.ts-arrow{font-size:.65rem;color:var(--text3);transition:color .2s,transform .2s;position:relative;z-index:1;}
+.ts-item:hover .ts-arrow{color:var(--teal);transform:translateX(3px);}
 </style>
 </head>
 <body>
+
+<!-- PAGE ENTRY LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">XYPEX <em>STUDIO</em></div>
+  <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
+  <div class="loader-txt">Initializing Portfolio...</div>
+</div>
 <div id="bg-grid"></div>
 <canvas id="bg-canvas"></canvas>
 <div id="cur-glow"></div>
@@ -408,9 +486,7 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 
 <!-- ═══ NAVBAR ════════════════════════════════════════════ -->
 <header class="nav" id="topnav">
-  <a class="brand" href="#hero">
-    SHAYAN<span class="brand-sep">|</span><span class="brand-x">XYPEX Studio</span>
-  </a>
+  <a class="brand" href="#hero">XYPEX <span class="brand-x">STUDIO</span></a>
   <nav><ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -421,7 +497,10 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
   </ul></nav>
   <div class="nav-r">
     <button class="t-pill" id="tbtn" title="Toggle theme">
-      <span class="ti" id="tico">☀️</span><span id="tlbl">Light</span>
+      <span class="ti" id="tico">
+        <svg id="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span><span id="tlbl">Light</span>
     </button>
     <!-- HIRE ME — one click opens multi-step modal, NOT a nav link -->
     <button class="hire-btn" id="openHire">Hire Me</button>
@@ -437,8 +516,8 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 <!-- ═══ HERO ════════════════════════════════════════════ -->
 <section id="hero" class="shell hero-sh">
   <div class="h-left rv">
-    <div class="h-badge"><span class="ldot"></span>Available for Remote & Onsite Opportunities</div>
-    <h1 class="h-name">Muhammad<br>Shayan<br>Shamim</h1>
+    <div class="h-badge"><span class="ldot"></span>Available for Work &nbsp;·&nbsp; Remote &nbsp;/&nbsp; On-Site</div>
+    <h1 class="h-name">Muhammad Shayan Shamim</h1>
     <div class="t-row">
       <span class="t-prefix">//</span>
       <span class="t-target" id="typer"></span>
@@ -452,16 +531,14 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
     <div class="soc-row">
       <a class="soc-p" href="https://github.com/shayan-analyst" target="_blank" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
       <a class="soc-p" href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.86 3.35-1.86 3.59 0 4.25 2.36 4.25 5.43v6.32zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
-      <a class="soc-p" href="mailto:shayan.analyst@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a class="soc-p" href="mailto:muhammadshayan02k@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       <a class="soc-p" href="https://wa.me/923172756808" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </div>
   </div>
   <div class="h-right rv" style="transition-delay:.18s">
     <div class="hstat"><div class="hnum">1+</div><div class="hlbl">Year Professional Experience</div></div>
     <div class="hstat"><div class="hnum">3+</div><div class="hlbl">End-to-End Projects Delivered</div></div>
-    <div class="hchips">
-      <span class="chip">Power BI</span><span class="chip">SQL Server</span><span class="chip">SSIS</span><span class="chip">Python</span><span class="chip">Agentic AI</span><span class="chip">LLMs</span>
-    </div>
+
   </div>
 </section><hr class="div"/>
 
@@ -470,16 +547,15 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
   <div class="sh rv"><div class="stag">Who I Am</div><h2 class="stitle">About <span>Me</span></h2><div class="sline"></div></div>
   <div class="ag">
     <div class="at rv fl">
-      <p>I'm a <strong>final-year Data Science student</strong> at Ziauddin University and a working <strong>BI & Data Analyst</strong> at Habib University, Karachi. I specialize in the practical engineering side of data — building systems that actually work.</p>
-      <p>My day-to-day involves designing <strong>automated ETL pipelines with SSIS and Python</strong>, structuring reliable SQL Server databases, and delivering <strong>interactive Power BI dashboards</strong> business teams genuinely use.</p>
-      <p>I actively leverage <strong>AI tools and LLMs</strong> to accelerate complex business logic deployment — ready for agile, AI-driven roles locally and internationally.</p>
-      <div class="at-note">🎯 FYP: Building an Agentic AI system for retail SME automation — Python + ML + LLMs + SQL + Power BI in one autonomous pipeline.<br><br>🏢 Operating under <strong>XYPEX STUDIO</strong> — a professional identity representing precision in data architecture and a growing vision for IT service delivery.</div>
-    </div>
-    <div class="astats rv fr">
-      <div class="asc d1"><div class="asc-v">ETL</div><div class="asc-l">Automated Pipelines (SSIS/Python)</div></div>
-      <div class="asc d2"><div class="asc-v">SQL</div><div class="asc-l">Views, Procedures & Schema Design</div></div>
-      <div class="asc d3"><div class="asc-v">BI</div><div class="asc-l">Interactive Power BI Dashboards</div></div>
-      <div class="asc d4"><div class="asc-v">AI</div><div class="asc-l">Agentic Systems & LLM Workflows</div></div>
+      <p>I am a final-year <strong>Data Science student at Ziauddin University</strong> and a working <strong>BI & Data Analyst at Habib University, Karachi</strong>. I focus on the practical engineering side of data—building systems that actually drive decisions.</p>
+      
+      <p>My expertise spans designing <strong>automated ETL pipelines with SSIS and Python</strong>, structuring reliable SQL Server databases, and delivering <strong>interactive Power BI dashboards</strong> that business teams genuinely use.</p>
+      
+      <p>By actively integrating <strong>AI workflows and LLMs</strong>, I accelerate complex data logic deployment, making backend systems agile and ready for modern enterprise demands.</p>
+      
+      <p>My current <strong>Final Year Project</strong> focuses on building an autonomous multi-agent AI pipeline for retail SME automation—integrating Python, ML, LLMs, SQL Server, and Power BI into a single intelligent system.</p>
+      
+      <p style="margin-top:8px;">I operate under the professional standard of <strong style="color:var(--teal);">XYPEX STUDIO</strong>—representing absolute precision in data architecture and a long-term vision for scalable technology services.</p>
     </div>
   </div>
 </section><hr class="div"/>
@@ -488,26 +564,22 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 <section id="skills" class="shell">
   <div class="sh rv"><div class="stag">Technical Proficiency</div><h2 class="stitle">Skills &amp; <span>Tools</span></h2><div class="sline"></div></div>
   <div class="sk-grid">
-    <div class="sk-c rv d1"><div class="ski">📊</div><div class="skt">Business Intelligence</div>
+    <div class="sk-c rv d1"><div class="ski"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--teal)"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="skt">Business Intelligence</div>
       <div class="sbr"><span class="sbn">Power BI</span><span class="sbp">90%</span></div><div class="sbt"><div class="sbf" data-w="90"></div></div>
       <div class="sbr"><span class="sbn">DAX & Data Modeling</span><span class="sbp">80%</span></div><div class="sbt"><div class="sbf" data-w="80"></div></div>
       <div class="sbr"><span class="sbn">KPI Reporting</span><span class="sbp">85%</span></div><div class="sbt"><div class="sbf" data-w="85"></div></div>
     </div>
-    <div class="sk-c rv d2"><div class="ski">🔧</div><div class="skt">Data Engineering & ETL</div>
+    <div class="sk-c rv d2"><div class="ski"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--teal)"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="skt">Data Engineering & ETL</div>
       <div class="sbr"><span class="sbn">SSIS Pipelines</span><span class="sbp">85%</span></div><div class="sbt"><div class="sbf" data-w="85"></div></div>
       <div class="sbr"><span class="sbn">SQL Server / T-SQL</span><span class="sbp">88%</span></div><div class="sbt"><div class="sbf" data-w="88"></div></div>
       <div class="sbr"><span class="sbn">Database Architecture</span><span class="sbp">82%</span></div><div class="sbt"><div class="sbf" data-w="82"></div></div>
     </div>
-    <div class="sk-c rv d3"><div class="ski">🐍</div><div class="skt">Programming & AI</div>
+    <div class="sk-c rv d3"><div class="ski"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--teal)"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"/></svg></div><div class="skt">Programming & AI</div>
       <div class="sbr"><span class="sbn">Python</span><span class="sbp">80%</span></div><div class="sbt"><div class="sbf" data-w="80"></div></div>
       <div class="sbr"><span class="sbn">Machine Learning</span><span class="sbp">70%</span></div><div class="sbt"><div class="sbf" data-w="70"></div></div>
       <div class="sbr"><span class="sbn">Agentic AI / LLMs</span><span class="sbp">75%</span></div><div class="sbt"><div class="sbf" data-w="75"></div></div>
     </div>
-    <div class="sk-c rv d4"><div class="ski">⚙️</div><div class="skt">Tools & Platforms</div>
-      <div class="sbr"><span class="sbn">Microsoft Fabric</span><span class="sbp">60%</span></div><div class="sbt"><div class="sbf" data-w="60"></div></div>
-      <div class="sbr"><span class="sbn">Git / GitHub</span><span class="sbp">75%</span></div><div class="sbt"><div class="sbf" data-w="75"></div></div>
-      <div class="sbr"><span class="sbn">FastAPI / REST APIs</span><span class="sbp">68%</span></div><div class="sbt"><div class="sbf" data-w="68"></div></div>
-    </div>
+
   </div>
 </section><hr class="div"/>
 
@@ -534,19 +606,19 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
   <div class="sh rv"><div class="stag">Portfolio</div><h2 class="stitle">View My <span>Work</span></h2><div class="sline"></div><p class="ssub">Click a domain to explore projects, dashboards, and case studies.</p></div>
   <div class="sg">
     <a class="sc rv d1" href="analytics.html">
-      <div class="sct"><span class="scico">📊</span><span class="sclbl">Data Analytics</span></div>
+      <div class="sct"><span class="scico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--teal)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="sclbl">Data Analytics</span></div>
       <div class="scn">BI Dashboards & SQL Insights</div>
       <p class="scd">Power BI dashboards, ETL pipelines, SQL data models, and KPI reporting systems for real business intelligence.</p>
       <div class="scc">// 3 Projects</div><span class="scarr">↗</span>
     </a>
     <a class="sc rv d2" href="software.html">
-      <div class="sct"><span class="scico">💻</span><span class="sclbl">Software Dev</span></div>
+      <div class="sct"><span class="scico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--teal)"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="sclbl">Software Dev</span></div>
       <div class="scn">Apps, APIs & Automation</div>
       <p class="scd">Python tools, internal apps, REST APIs, and workflow automation scripts built to solve real operational problems.</p>
       <div class="scc">// 2 Projects</div><span class="scarr">↗</span>
     </a>
     <a class="sc rv d3" href="ai.html">
-      <div class="sct"><span class="scico">🤖</span><span class="sclbl">AI Models</span></div>
+      <div class="sct"><span class="scico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--teal)"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7H3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><path d="M5 14v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/><line x1="9" y1="18" x2="9" y2="18"/><line x1="15" y1="18" x2="15" y2="18"/></svg></span><span class="sclbl">AI Models</span></div>
       <div class="scn">Agents, LLMs & ML Systems</div>
       <p class="scd">Agentic AI systems, LLM-powered pipelines, NLP automation, and machine learning models for real-world automation.</p>
       <div class="scc">// 2 Projects</div><span class="scarr">↗</span>
@@ -558,9 +630,9 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 <section id="education" class="shell">
   <div class="sh rv"><div class="stag">Academic Background</div><h2 class="stitle">My <span>Education</span></h2><div class="sline"></div></div>
   <div class="eg">
-    <div class="ed rv d1"><div class="edico">🎓</div><div class="edyr">2023 – EXPECTED 2027</div><div class="edd">BS Data Science</div><div class="eds">Ziauddin University, Karachi</div></div>
-    <div class="ed rv d2"><div class="edico">🎨</div><div class="edyr">2022 – 2023</div><div class="edd">Diploma in Animation, VFX & Multimedia</div><div class="eds">NED University of Engineering & Technology</div></div>
-    <div class="ed rv d3"><div class="edico">📐</div><div class="edyr">2020 – 2022</div><div class="edd">HEC Equivalency – Pre-Engineering</div><div class="eds">Board of Intermediate Education, Karachi</div></div>
+    <div class="ed rv d1"><div class="edico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;color:var(--teal)"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="edyr">2023 – EXPECTED 2027</div><div class="edd">BS Data Science</div><div class="eds">Ziauddin University, Karachi</div></div>
+    <div class="ed rv d2"><div class="edico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;color:var(--teal)"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div class="edyr">2022 – 2023</div><div class="edd">Diploma in Animation, VFX & Multimedia</div><div class="eds">NED University of Engineering & Technology</div></div>
+    <div class="ed rv d3"><div class="edico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;color:var(--teal)"><path d="M2 20h20L12 4z"/><line x1="12" y1="12" x2="12" y2="20"/><line x1="8" y1="16" x2="16" y2="16"/></svg></div><div class="edyr">2020 – 2022</div><div class="edd">HEC Equivalency – Pre-Engineering</div><div class="eds">Board of Intermediate Education, Karachi</div></div>
   </div>
 </section><hr class="div"/>
 
@@ -568,10 +640,10 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 <section id="certifications" class="shell">
   <div class="sh rv"><div class="stag">Credentials</div><h2 class="stitle">Certifications &amp; <span>Courses</span></h2><div class="sline"></div></div>
   <div class="cg">
-    <div class="cc rv d1"><div class="cico">📊</div><div><div class="cn">Power BI Data Analyst</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
-    <div class="cc rv d2"><div class="cico">🗄️</div><div><div class="cn">SQL for Data Science</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
-    <div class="cc rv d3"><div class="cico">🐍</div><div><div class="cn">Python for Data Analysis</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
-    <div class="cc rv d4"><div class="cico">🤖</div><div><div class="cn">AI & Machine Learning</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
+    <div class="cc rv d1"><div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--teal)"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="cn">Power BI Data Analyst</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
+    <div class="cc rv d2"><div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--teal)"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="cn">SQL for Data Science</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
+    <div class="cc rv d3"><div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--teal)"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"/></svg></div><div><div class="cn">Python for Data Analysis</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
+    <div class="cc rv d4"><div class="cico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;color:var(--teal)"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></div><div><div class="cn">AI & Machine Learning</div><div class="ci2">Add Issuer / Platform</div><div class="cyr">Add Year</div></div></div>
   </div>
 </section><hr class="div"/>
 
@@ -583,9 +655,9 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
       <h3>Let's build scalable data solutions together.</h3>
       <p>Open to local and international opportunities — ETL, Power BI, AI automation, or full data engineering setups. Reach out through any channel below.</p>
       <div class="csocs">
-        <a class="clink" href="mailto:shayan.analyst@gmail.com">
+        <a class="clink" href="mailto:muhammadshayan02k@gmail.com">
           <div class="ciw"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-          <div class="cmeta"><div class="clbl">Email</div><div class="cval">shayan.analyst@gmail.com</div></div>
+          <div class="cmeta"><div class="clbl">Email</div><div class="cval">muhammadshayan02k@gmail.com</div></div>
         </a>
         <a class="clink" href="https://wa.me/923172756808" target="_blank">
           <div class="ciw"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
@@ -621,14 +693,13 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
 
 <!-- ═══ FOOTER — social icons only, no nav duplication ═══ -->
 <footer>
-  <div>
-    <div class="fcopy">© 2026 <span>Muhammad Shayan Shamim</span> · BI & Data Analyst · Karachi</div>
-    <div class="fxypex" style="margin-top:6px;">A Vision by XYPEX STUDIO</div>
-  </div>
-  <div class="fsoc">
+  <div class="fcopy">© 2026 <span>Muhammad Shayan Shamim</span> · Karachi</div>
+  <div style="text-align:center;">
+    <div class="fxypex">A Vision by XYPEX STUDIO</div>
+  <div class="fsoc" style="justify-content:flex-end;">
     <a href="https://github.com/shayan-analyst" target="_blank" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
     <a href="https://www.linkedin.com/in/muhammad-shayan-shamim-543268413/" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.86 3.35-1.86 3.59 0 4.25 2.36 4.25 5.43v6.32zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
-    <a href="mailto:shayan.analyst@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="mailto:muhammadshayan02k@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
   </div>
 </footer>
 
@@ -730,18 +801,33 @@ footer{border-top:1px solid var(--border);padding:10px 6%;display:flex;align-ite
       <div class="hm-thanks">
         <div class="hm-thanks-ico">🎉</div>
         <h3>Request Received!</h3>
-        <p>Thank you for reaching out. I'll review your request and get back to you <span class="teal">within 24 hours</span>.<br><br>Looking forward to connecting <span class="teal" id="thanks-name"></span>!</p>
+        <p>Thank you for reaching out. I'll review your request and get back to you <span class="teal">within 24 hours</span>.<br><br>Looking forward to connecting with you<span class="teal" id="thanks-name"></span>!</p>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+
+/* ═══ PAGE LOADER ════════════════════════════════════════ */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('page-loader');
+    if (loader) loader.classList.add('done');
+  }, 1400);
+});
+
+
+
 /* ═══ THEME ═══════════════════════════════════════════════ */
 const TK='xypex-theme',H=document.documentElement;
 const tbtn=document.getElementById('tbtn'),tIco=document.getElementById('tico'),tLbl=document.getElementById('tlbl'),tFlash=document.getElementById('t-flash');
 let pColor=H.getAttribute('data-theme')==='dark'?'0,205,240':'0,119,182';
-function syncThemeBtn(t){tIco.textContent=t==='dark'?'☀️':'🌙';tLbl.textContent=t==='dark'?'Light':'Dark';}
+function syncThemeBtn(t){
+  const sun=document.getElementById('ico-sun'), moon=document.getElementById('ico-moon');
+  if(sun&&moon){sun.style.display=t==='dark'?'block':'none';moon.style.display=t==='dark'?'none':'block';}
+  if(tLbl) tLbl.textContent=t==='dark'?'Light':'Dark';
+}
 function applyTheme(t,anim){
   H.setAttribute('data-theme',t);H.style.colorScheme=t;
   try{localStorage.setItem(TK,t);}catch(e){}
@@ -800,17 +886,72 @@ const rvObs=new IntersectionObserver(entries=>{
 },{threshold:.1,rootMargin:'0px 0px -48px 0px'});
 document.querySelectorAll('.rv,.sk-c,.sc,.ed,.cc').forEach(el=>rvObs.observe(el));
 
-/* ═══ TYPING — fixed row height, no layout jump ═════════ */
-const words=['BI & Data Analyst','ETL Pipeline Engineer','Power BI Developer','Agentic AI Builder','SQL Database Expert'];
-const typer=document.getElementById('typer');
-let wi=0,ci=0,del=false;
-function tick(){
-  const w=words[wi];typer.textContent=w.substring(0,ci);
-  if(!del&&ci===w.length){del=true;setTimeout(tick,2100);return;}
-  if(del&&ci===0){del=false;wi=(wi+1)%words.length;setTimeout(tick,420);return;}
-  ci+=del?-1:1;setTimeout(tick,del?48:80);
+/* ═══ TYPING — Data Scientist static, then sub-roles cycle ══
+   Pattern:
+   1. "Data Scientist" types in fully, stays 1.8s (identity established)
+   2. Deletes down to "Data " (keeps "Data" as anchor)
+   3. Cycles: Analyst → Engineer → Developer → AI Builder → Expert
+   4. Every 3rd cycle returns to full "Data Scientist" pause
+   ══════════════════════════════════════════════════════════ */
+const typer = document.getElementById('typer');
+const BASE   = 'Data Scientist';
+const SUBS   = [
+  'BI & Data Analyst',
+  'ETL Pipeline Engineer',
+  'Power BI Developer',
+  'Agentic AI Builder',
+  'SQL Database Expert',
+];
+let phase = 'type-base'; // type-base | pause-base | delete-to-sub | type-sub | pause-sub | delete-sub | return-base
+let ci    = 0;
+let si    = 0;           // sub index
+let cycle = 0;
+
+function tick() {
+  switch (phase) {
+    case 'type-base':
+      ci++;
+      typer.textContent = BASE.substring(0, ci);
+      if (ci >= BASE.length) { phase = 'pause-base'; setTimeout(tick, 1800); return; }
+      break;
+    case 'pause-base':
+      phase = 'delete-to-sub';
+      break;
+    case 'delete-to-sub':
+      ci--;
+      typer.textContent = BASE.substring(0, ci);
+      if (ci <= 0) { phase = 'type-sub'; ci = 0; setTimeout(tick, 380); return; }
+      setTimeout(tick, 46); return;
+    case 'type-sub':
+      ci++;
+      typer.textContent = SUBS[si].substring(0, ci);
+      if (ci >= SUBS[si].length) { phase = 'pause-sub'; setTimeout(tick, 2000); return; }
+      break;
+    case 'pause-sub':
+      phase = 'delete-sub';
+      break;
+    case 'delete-sub':
+      ci--;
+      typer.textContent = SUBS[si].substring(0, ci);
+      if (ci <= 0) {
+        si = (si + 1) % SUBS.length;
+        cycle++;
+        if (cycle % SUBS.length === 0) {
+          /* Return to base every full cycle */
+          phase = 'type-base'; ci = 0;
+          setTimeout(tick, 420); return;
+        }
+        phase = 'type-sub'; ci = 0;
+        setTimeout(tick, 380); return;
+      }
+      setTimeout(tick, 44); return;
+    case 'return-base':
+      phase = 'type-base'; ci = 0;
+      break;
+  }
+  setTimeout(tick, phase.startsWith('type') ? 78 : 0);
 }
-setTimeout(tick,900);
+setTimeout(tick, 1000);
 
 /* ═══ SMOOTH SCROLL ══════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -825,7 +966,7 @@ cf.addEventListener('submit',async e=>{
     const r=await fetch(cf.action,{method:'POST',body:new FormData(cf),headers:{Accept:'application/json'}});
     if(r.ok){fs.className='ok';fs.textContent='✓ Sent! I\'ll reply shortly.';cf.reset();}
     else throw new Error();
-  }catch{fs.className='err';fs.textContent='✗ Failed. Email: shayan.analyst@gmail.com';}
+  }catch{fs.className='err';fs.textContent='✗ Failed. Email: muhammadshayan02k@gmail.com';}
 });
 
 /* ═══ HIRE ME MODAL ══════════════════════════════════════ */
@@ -883,7 +1024,7 @@ document.getElementById('hm-mode').addEventListener('change',function(){
 /* ── Step 3 Submit ──────────────────────────────────────────
    HOW IT WORKS:
    1. All modal fields are collected and sent to Formspree via fetch().
-   2. Formspree emails ALL fields directly to shayan.analyst@gmail.com.
+   2. Formspree emails ALL fields directly to muhammadshayan02k@gmail.com.
    3. No page reload. Thank-you screen shows on success.
 
    SETUP (one-time, 2 minutes):
@@ -919,6 +1060,7 @@ document.getElementById('hp3-submit').addEventListener('click', async () => {
 
   /* ── Build payload — Formspree renders each key as a labeled field ── */
   const payload = new FormData();
+  payload.append('_replyto', email);
   payload.append('_subject',        `Hire Request — ${selType} — ${org}`);
   payload.append('Full Name',       name);
   payload.append('Email',           email);
@@ -942,7 +1084,7 @@ document.getElementById('hp3-submit').addEventListener('click', async () => {
       });
       if (!res.ok) throw new Error('server');
       /* Success → show thank you */
-      document.getElementById('thanks-name').textContent = name ? ', ' + name : '';
+      document.getElementById('thanks-name').textContent = name ? ', ' + name.split(' ')[0] : '';
       showStep(4);
       btn.textContent = 'Submit Request 🚀';
       btn.disabled = false;
@@ -974,13 +1116,13 @@ document.getElementById('hp3-submit').addEventListener('click', async () => {
   ].join('\n');
 
   window.location.href =
-    `mailto:shayan.analyst@gmail.com`
+    `mailto:muhammadshayan02k@gmail.com`
     + `?subject=${encodeURIComponent('Hire Request — ' + selType + ' — ' + org)}`
     + `&body=${encodeURIComponent(body)}`;
 
-  document.getElementById('thanks-name').textContent = name ? ', ' + name : '';
+  document.getElementById('thanks-name').textContent = name ? ', ' + name.split(' ')[0] : '';
   setTimeout(() => showStep(4), 500);
-  btn.textContent = 'Submit Request';
+  btn.textContent = 'Submit Request 🚀';
   btn.disabled = false;
 });
 </script>
