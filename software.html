@@ -152,10 +152,30 @@ footer{border-top:1px solid var(--border);padding:22px 6%;display:flex;align-ite
     <p class="ssub">Python tools, internal apps, REST APIs, and workflow automation scripts built to solve real operational problems.</p>
   </div>
 
-  <div class="ph-notice rv">
-    <span class="pin">📌</span>
-    <span>Placeholder projects below. Replace thumbnails with real app screenshots, and update GitHub links to actual repositories when ready.</span>
-  </div>
+  <style>
+ 
+  @keyframes spin-api {
+    to { transform: rotate(360deg); }
+  }
+
+  .spinning-api {
+    animation: spin-api 4s linear infinite; /* Smooth automation loop */
+    transform-origin: 50% 50%;
+  }
+</style>
+
+<div class="ph-notice rv">
+  <span class="pin" style="display: inline-flex; align-items: center; justify-content: center; color: var(--teal);">
+    <svg class="spinning-api" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="23 4 23 10 17 10"></polyline>
+      <polyline points="1 20 1 14 7 14"></polyline>
+      <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+    </svg>
+  </span>
+  <span style="font-style: italic; color: var(--text-muted); font-size: 0.95em;">
+    <strong>Work in Progress:</strong> My Python automation scripts, REST API integrations, and internal workflow tools are currently being refined. This section will soon be updated with live GitHub repositories and application demos.
+  </span>
+</div>
 
   <div class="proj-grid">
 
