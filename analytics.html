@@ -114,6 +114,88 @@ footer{border-top:1px solid var(--border);padding:22px 6%;display:flex;align-ite
   footer{flex-direction:column;text-align:center;}
   .fsoc{justify-content:center;}
 }
+
+/* ═══ LIVE DASHBOARD CARD ═══════════════════════════════ */
+.proj-clickable{cursor:pointer;}
+.proj-thumb-live{position:relative;}
+.thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(6,13,26,0.55);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  opacity:0;transition:opacity .25s;
+}
+.proj-clickable:hover .thumb-overlay{opacity:1;}
+.thumb-play{
+  width:54px;height:54px;border-radius:50%;
+  background:var(--teal);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;box-shadow:0 8px 30px var(--teal-glow);
+  transform:scale(.8);transition:transform .25s;
+}
+.proj-clickable:hover .thumb-play{transform:scale(1);}
+.thumb-overlay-text{
+  font-family:var(--mono);font-size:.7rem;color:#fff;
+  letter-spacing:.5px;text-align:center;padding:0 20px;
+}
+
+/* ═══ DASHBOARD MODAL ═══════════════════════════════════ */
+#pbi-modal{
+  position:fixed;inset:0;z-index:2500;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+#pbi-modal.open{opacity:1;pointer-events:all;}
+.pbi-backdrop{position:absolute;inset:0;background:rgba(4,9,18,.86);backdrop-filter:blur(12px);}
+.pbi-box{
+  position:relative;z-index:1;
+  width:100%;max-width:1040px;
+  background:var(--bg2);
+  border:1px solid var(--border-h);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 60px var(--teal-glow);
+  transform:translateY(30px) scale(.97);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+#pbi-modal.open .pbi-box{transform:translateY(0) scale(1);}
+.pbi-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid var(--border);
+}
+.pbi-head-title{font-family:var(--sans);font-size:.92rem;font-weight:700;color:var(--head);}
+.pbi-head-sub{font-family:var(--mono);font-size:.65rem;color:var(--text2);margin-top:2px;}
+.pbi-close{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--teal-soft);border:1px solid var(--border);
+  color:var(--text2);font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s,transform .2s;flex-shrink:0;
+}
+.pbi-close:hover{background:var(--teal);color:var(--bg);transform:rotate(90deg);}
+.pbi-frame-wrap{
+  position:relative;width:100%;
+  padding-bottom:62.25%; /* 600x373.5 aspect ratio */
+  background:#0a1628;
+}
+.pbi-frame-wrap iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+.pbi-loading{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:12px;
+  color:var(--text2);font-family:var(--mono);font-size:.75rem;
+}
+.pbi-spinner{
+  width:28px;height:28px;border:2.5px solid var(--border);
+  border-top-color:var(--teal);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:700px){
+  .pbi-head-title{font-size:.82rem;}
+}
 </style>
 </head>
 <body>
@@ -155,63 +237,98 @@ footer{border-top:1px solid var(--border);padding:22px 6%;display:flex;align-ite
   <!-- PLACEHOLDER notice -->
   <div class="ph-notice rv">
     <span class="pin">📌</span>
-    <span>Demo projects below. Replace thumbnails and descriptions with your real Power BI screenshots, SQL schema diagrams, and case study details when ready.</span>
+    <span>Placeholder projects below. Replace thumbnails and descriptions with your real Power BI screenshots, SQL schema diagrams, and case study details when ready.</span>
   </div>
 
   <div class="proj-grid">
 
-    <!-- Project 1: University BI Dashboard -->
-    <!-- PLACEHOLDER: Replace with actual Habib University Power BI screenshot -->
-    <div class="proj-card rv d1">
-      <div class="proj-thumb">
-        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" style="background:#0a1628;">
-  <rect width="480" height="270" fill="#0a1628"/>
-  <!-- Grid lines -->
-  <line x1="60" y1="20" x2="60" y2="220" stroke="#1a3a5c" stroke-width="1"/>
-  <line x1="60" y1="220" x2="460" y2="220" stroke="#1a3a5c" stroke-width="1"/>
-  <line x1="60" y1="170" x2="460" y2="170" stroke="#1a3a5c" stroke-width=".5" stroke-dasharray="4,4"/>
-  <line x1="60" y1="120" x2="460" y2="120" stroke="#1a3a5c" stroke-width=".5" stroke-dasharray="4,4"/>
-  <line x1="60" y1="70" x2="460" y2="70" stroke="#1a3a5c" stroke-width=".5" stroke-dasharray="4,4"/>
-  <!-- Bars -->
-  <rect x="90" y="110" width="40" height="110" rx="4" fill="#00cdf0" opacity=".85"/>
-  <rect x="155" y="140" width="40" height="80" rx="4" fill="#0077b6" opacity=".75"/>
-  <rect x="220" y="80" width="40" height="140" rx="4" fill="#00cdf0" opacity=".9"/>
-  <rect x="285" y="100" width="40" height="120" rx="4" fill="#0077b6" opacity=".8"/>
-  <rect x="350" y="55" width="40" height="165" rx="4" fill="#00cdf0" opacity=".95"/>
-  <rect x="415" y="130" width="40" height="90" rx="4" fill="#0077b6" opacity=".7"/>
-  <!-- KPI cards top right -->
-  <rect x="300" y="20" width="75" height="35" rx="6" fill="#112d55" stroke="#00cdf0" stroke-width=".8" stroke-opacity=".4"/>
-  <text x="337" y="33" fill="#00cdf0" font-family="monospace" font-size="9" text-anchor="middle">TOTAL</text>
-  <text x="337" y="46" fill="white" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">94.7K</text>
-  <rect x="385" y="20" width="75" height="35" rx="6" fill="#112d55" stroke="#00cdf0" stroke-width=".8" stroke-opacity=".4"/>
-  <text x="422" y="33" fill="#00cdf0" font-family="monospace" font-size="9" text-anchor="middle">GROWTH</text>
-  <text x="422" y="46" fill="white" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">+18.3%</text>
-  <!-- Title -->
-  <text x="70" y="38" fill="white" font-family="sans-serif" font-size="11" font-weight="600">University KPI Dashboard</text>
-  <!-- Axis labels -->
-  <text x="110" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q1</text>
-  <text x="175" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q2</text>
-  <text x="240" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q3</text>
-  <text x="305" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q4</text>
-  <text x="370" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q5</text>
-  <text x="435" y="235" fill="#3d6080" font-family="monospace" font-size="8" text-anchor="middle">Q6</text>
-  <!-- Trend line -->
-  <polyline points="110,110 175,140 240,80 305,100 370,55 435,130" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,2" opacity=".7"/>
-</svg>
+    <!-- Project 1: InstaWP SaaS Analytics Dashboard (LIVE) -->
+    <!-- This is a real, multi-page Power BI report built on dummy/sample data
+         as a sales-pitch demo for InstaWP (a WordPress hosting SaaS).
+         No real customer data is used — fully safe for public display. -->
+    <div class="proj-card rv d1 proj-clickable" data-pbi="https://app.powerbi.com/view?r=eyJrIjoiMGM2MjhiNGMtNDJhNy00N2E5LTgyNmUtMDZhMjY3ZGQ0ZTEwIiwidCI6IjcwYzM1YWE0LWJlZDQtNDhmMi05NWM5LWUzYmEyZjdjMDM3YSIsImMiOjl9" data-title="InstaWP — SaaS Analytics Dashboard">
+      <div class="proj-thumb proj-thumb-live">
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
+          <rect width="480" height="270" fill="#eef3f3"/>
+          <!-- Top bar -->
+          <rect x="0" y="0" width="480" height="34" fill="#f5f8f8" stroke="#dde5e5" stroke-width="1"/>
+          <rect x="14" y="9" width="70" height="16" rx="3" fill="#0d3b3b"/>
+          <text x="49" y="20" fill="#4dd0c8" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">InstaWP</text>
+          <text x="240" y="22" fill="#0d6e6e" font-family="sans-serif" font-size="11" font-weight="700" text-anchor="middle" text-decoration="underline">Overview</text>
+          <text x="450" y="22" fill="#0d6e6e" font-family="sans-serif" font-size="9" font-weight="600" text-anchor="end">Site Info →</text>
+          <!-- KPI row -->
+          <rect x="10" y="42" width="108" height="44" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <text x="64" y="55" fill="#666" font-family="sans-serif" font-size="7.5" text-anchor="middle">Number of Users</text>
+          <text x="64" y="74" fill="#0d6e6e" font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">2000</text>
+          <rect x="122" y="42" width="108" height="44" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <text x="176" y="55" fill="#666" font-family="sans-serif" font-size="7.5" text-anchor="middle">Total Sites</text>
+          <text x="176" y="74" fill="#0d6e6e" font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">4000</text>
+          <rect x="234" y="42" width="116" height="44" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <text x="292" y="55" fill="#666" font-family="sans-serif" font-size="7.5" text-anchor="middle">Net Revenue</text>
+          <text x="292" y="74" fill="#15998f" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle">$328.72K</text>
+          <rect x="354" y="42" width="116" height="44" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <text x="412" y="55" fill="#666" font-family="sans-serif" font-size="7.5" text-anchor="middle">WD Versions</text>
+          <text x="412" y="74" fill="#e8543e" font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">5</text>
+          <!-- Bar chart: Country by Net Revenue -->
+          <rect x="10" y="92" width="225" height="92" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <rect x="10" y="92" width="225" height="16" fill="#0d6e6e"/>
+          <text x="122" y="103" fill="white" font-family="sans-serif" font-size="7.5" font-weight="600" text-anchor="middle">Country by Net Revenue</text>
+          <rect x="60" y="116" width="135" height="9" rx="2" fill="#0d6e6e"/>
+          <rect x="60" y="130" width="128" height="9" rx="2" fill="#1d8a85"/>
+          <rect x="60" y="144" width="122" height="9" rx="2" fill="#3aa9a3"/>
+          <rect x="60" y="158" width="112" height="9" rx="2" fill="#74c9c4"/>
+          <rect x="60" y="172" width="108" height="9" rx="2" fill="#a9e0dc"/>
+          <!-- Funnel: Active Sites by Country -->
+          <rect x="245" y="92" width="225" height="92" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <rect x="245" y="92" width="225" height="16" fill="#0d6e6e"/>
+          <text x="357" y="103" fill="white" font-family="sans-serif" font-size="7.5" font-weight="600" text-anchor="middle">Active Sites by Country</text>
+          <rect x="290" y="116" width="170" height="11" fill="#0d6e6e"/>
+          <text x="375" y="125" fill="white" font-family="sans-serif" font-size="7" text-anchor="middle">201</text>
+          <rect x="300" y="130" width="150" height="11" fill="#1d8a85"/>
+          <text x="375" y="139" fill="white" font-family="sans-serif" font-size="7" text-anchor="middle">83</text>
+          <rect x="312" y="144" width="126" height="11" fill="#3aa9a3"/>
+          <text x="375" y="153" fill="white" font-family="sans-serif" font-size="7" text-anchor="middle">62</text>
+          <rect x="325" y="158" width="100" height="11" fill="#74c9c4"/>
+          <text x="375" y="167" fill="#0d6e6e" font-family="sans-serif" font-size="7" text-anchor="middle">48</text>
+          <!-- Donut chart: Net Revenue by Season -->
+          <rect x="10" y="188" width="225" height="78" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <rect x="10" y="188" width="225" height="16" fill="#0d6e6e"/>
+          <text x="122" y="199" fill="white" font-family="sans-serif" font-size="7.5" font-weight="600" text-anchor="middle">Net Revenue ($) by Season</text>
+          <circle cx="65" cy="234" r="26" fill="none" stroke="#0d6e6e" stroke-width="14" stroke-dasharray="100 64" stroke-dashoffset="0"/>
+          <circle cx="65" cy="234" r="26" fill="none" stroke="#3aa9a3" stroke-width="14" stroke-dasharray="35 129" stroke-dashoffset="-100"/>
+          <circle cx="65" cy="234" r="26" fill="none" stroke="#74c9c4" stroke-width="14" stroke-dasharray="22 142" stroke-dashoffset="-135"/>
+          <circle cx="65" cy="234" r="26" fill="none" stroke="#a9e0dc" stroke-width="14" stroke-dasharray="7 157" stroke-dashoffset="-157"/>
+          <text x="148" y="218" fill="#666" font-family="sans-serif" font-size="6.5">● Normal — $195.5K</text>
+          <text x="148" y="230" fill="#666" font-family="sans-serif" font-size="6.5">● Christmas — $46.6K</text>
+          <text x="148" y="242" fill="#666" font-family="sans-serif" font-size="6.5">● New Year — $27.8K</text>
+          <text x="148" y="254" fill="#666" font-family="sans-serif" font-size="6.5">● Black Friday — $9.6K</text>
+          <!-- Line chart: Count of Users by Country -->
+          <rect x="245" y="188" width="225" height="78" rx="4" fill="#ffffff" stroke="#dde5e5"/>
+          <rect x="245" y="188" width="225" height="16" fill="#0d6e6e"/>
+          <text x="357" y="199" fill="white" font-family="sans-serif" font-size="7.5" font-weight="600" text-anchor="middle">Count of Users by Country</text>
+          <polyline points="258,214 285,228 312,232 339,236 366,250 393,250 420,252 447,253" fill="none" stroke="#1d8a85" stroke-width="2"/>
+          <circle cx="258" cy="214" r="2.5" fill="#0d6e6e"/><circle cx="285" cy="228" r="2.5" fill="#0d6e6e"/>
+          <circle cx="312" cy="232" r="2.5" fill="#0d6e6e"/><circle cx="339" cy="236" r="2.5" fill="#0d6e6e"/>
+          <circle cx="366" cy="250" r="2.5" fill="#0d6e6e"/><circle cx="393" cy="250" r="2.5" fill="#0d6e6e"/>
+          <circle cx="420" cy="252" r="2.5" fill="#0d6e6e"/><circle cx="447" cy="253" r="2.5" fill="#0d6e6e"/>
+        </svg>
+        <div class="thumb-overlay">
+          <div class="thumb-play">▶</div>
+          <div class="thumb-overlay-text">Click to open live interactive report</div>
+        </div>
       </div>
       <div class="proj-body">
         <div class="proj-tags">
           <span class="proj-tag">Power BI</span>
-          <span class="proj-tag">SQL Server</span>
-          <span class="proj-tag">DAX</span>
-          <span class="proj-tag">SSIS</span>
+          <span class="proj-tag">Advanced DAX</span>
+          <span class="proj-tag">SaaS Metrics</span>
+          <span class="proj-tag">Cohort Analysis</span>
         </div>
-        <div class="proj-name">University Institutional Dashboard</div>
-        <p class="proj-desc">Designed and deployed an end-to-end institutional reporting system for Habib University — automated ETL via SSIS ingests data from multiple campus applications into SQL Server, feeding live Power BI dashboards for executive stakeholders.</p>
+        <div class="proj-name">InstaWP — SaaS Revenue & Cohort Matrix (PoC)</div>
+        <p class="proj-desc">Engineered an executive-level BI solution using simulated data to demonstrate scalable B2B SaaS analytics. Transformed complex relational structures into actionable subscription metrics—including MRR, LTV, and a dynamic 12-month Customer Cohort Retention matrix via advanced DAX.</p>
         <div class="proj-footer">
-          <span class="proj-status live">● Professional</span>
-          <!-- PLACEHOLDER: Add GitHub or live link when available -->
-          <a class="proj-link" href="https://github.com/shayan-analyst" target="_blank">View GitHub →</a>
+          <span class="proj-status live">● Featured PoC</span>
+          <span class="proj-link" onclick="openDashboardModal()" style="cursor: pointer;">Open Dashboard ↗</span>
         </div>
       </div>
     </div>
@@ -398,6 +515,62 @@ window.addEventListener('DOMContentLoaded',()=>{
     a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
   });
 });
+</script>
+
+<!-- ═══ POWER BI LIVE DASHBOARD MODAL ═══════════════════════ -->
+<div id="pbi-modal" role="dialog" aria-modal="true" aria-label="Live Dashboard">
+  <div class="pbi-backdrop" id="pbi-backdrop"></div>
+  <div class="pbi-box">
+    <div class="pbi-head">
+      <div>
+        <div class="pbi-head-title" id="pbi-title">Live Dashboard</div>
+        <div class="pbi-head-sub">Interactive Power BI report · built on sample data</div>
+      </div>
+      <button class="pbi-close" id="pbi-close" title="Close">✕</button>
+    </div>
+    <div class="pbi-frame-wrap">
+      <div class="pbi-loading" id="pbi-loading">
+        <div class="pbi-spinner"></div>
+        <span>Loading live report...</span>
+      </div>
+      <iframe id="pbi-iframe" title="Power BI report" frameborder="0" allowFullScreen="true" src=""></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══ POWER BI MODAL LOGIC ═══════════════════════════════ */
+(function(){
+  const modal   = document.getElementById('pbi-modal');
+  const backdrop= document.getElementById('pbi-backdrop');
+  const closeBtn= document.getElementById('pbi-close');
+  const iframe  = document.getElementById('pbi-iframe');
+  const titleEl = document.getElementById('pbi-title');
+  const loading = document.getElementById('pbi-loading');
+
+  function openPBI(url, title){
+    titleEl.textContent = title || 'Live Dashboard';
+    loading.style.display = 'flex';
+    iframe.src = url;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePBI(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(()=>{ iframe.src = ''; }, 300);
+  }
+  iframe.addEventListener('load', ()=>{ loading.style.display = 'none'; });
+
+  document.querySelectorAll('.proj-clickable[data-pbi]').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      openPBI(card.dataset.pbi, card.dataset.title);
+    });
+  });
+  closeBtn.addEventListener('click', closePBI);
+  backdrop.addEventListener('click', closePBI);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePBI(); });
+})();
 </script>
 </body>
 </html>
