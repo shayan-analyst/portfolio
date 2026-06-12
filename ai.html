@@ -152,10 +152,30 @@ footer{border-top:1px solid var(--border);padding:22px 6%;display:flex;align-ite
     <p class="ssub">Agentic AI systems, LLM-powered pipelines, NLP automation, and machine learning models built for real-world business automation.</p>
   </div>
 
-  <div class="ph-notice rv">
-    <span class="pin">📌</span>
-    <span>Placeholder projects below. Replace with real architecture diagrams, model evaluation results, and demo screenshots when your FYP progresses.</span>
-  </div>
+  <style>
+
+  @keyframes spin-center {
+    100% { transform: rotate(360deg); }
+  }
+  
+  .spinning-atom {
+    animation: spin-center 6s linear infinite; 
+    transform-origin: 50% 50%;
+  }
+</style>
+
+<div class="ph-notice rv">
+  <span class="pin" style="display: inline-flex; align-items: center; justify-content: center; color: var(--teal);">
+    <svg class="spinning-atom" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="2.5"></circle>
+      <ellipse cx="12" cy="12" rx="10" ry="3" transform="rotate(45 12 12)"></ellipse>
+      <ellipse cx="12" cy="12" rx="10" ry="3" transform="rotate(-45 12 12)"></ellipse>
+    </svg>
+  </span>
+  <span style="font-style: italic; color: var(--text-muted); font-size: 0.95em;">
+    <strong>Work in Progress:</strong> My AI & Machine Learning Final Year Project (FYP) is currently under active development. This section will soon be updated with neural network architectures, model evaluation metrics, and live predictive demos.
+  </span>
+</div>
 
   <div class="proj-grid">
 
